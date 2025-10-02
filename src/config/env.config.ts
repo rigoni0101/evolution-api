@@ -161,6 +161,7 @@ export type EventsWebhook = {
   CALL: boolean;
   TYPEBOT_START: boolean;
   TYPEBOT_CHANGE_STATUS: boolean;
+  FULL_SYNC: boolean;
   ERRORS: boolean;
   ERRORS_WEBHOOK: string;
 };
@@ -426,6 +427,7 @@ export class ConfigService {
           CALL: process.env?.RABBITMQ_EVENTS_CALL === 'true',
           TYPEBOT_START: process.env?.RABBITMQ_EVENTS_TYPEBOT_START === 'true',
           TYPEBOT_CHANGE_STATUS: process.env?.RABBITMQ_EVENTS_TYPEBOT_CHANGE_STATUS === 'true',
+          FULL_SYNC: process.env?.RABBITMQ_EVENTS_FULL_SYNC === 'true',
         },
       },
       NATS: {
@@ -463,6 +465,7 @@ export class ConfigService {
           CALL: process.env?.NATS_EVENTS_CALL === 'true',
           TYPEBOT_START: process.env?.NATS_EVENTS_TYPEBOT_START === 'true',
           TYPEBOT_CHANGE_STATUS: process.env?.NATS_EVENTS_TYPEBOT_CHANGE_STATUS === 'true',
+          FULL_SYNC: process.env?.NATS_EVENTS_FULL_SYNC === 'true',
         },
       },
       SQS: {
@@ -515,6 +518,7 @@ export class ConfigService {
           CALL: process.env?.PUSHER_EVENTS_CALL === 'true',
           TYPEBOT_START: process.env?.PUSHER_EVENTS_TYPEBOT_START === 'true',
           TYPEBOT_CHANGE_STATUS: process.env?.PUSHER_EVENTS_TYPEBOT_CHANGE_STATUS === 'true',
+          FULL_SYNC: process.env?.PUSHER_EVENTS_FULL_SYNC === 'true',
         },
       },
       WA_BUSINESS: {
@@ -572,6 +576,7 @@ export class ConfigService {
           CALL: process.env?.WEBHOOK_EVENTS_CALL === 'true',
           TYPEBOT_START: process.env?.WEBHOOK_EVENTS_TYPEBOT_START === 'true',
           TYPEBOT_CHANGE_STATUS: process.env?.WEBHOOK_EVENTS_TYPEBOT_CHANGE_STATUS === 'true',
+          FULL_SYNC: process.env?.WEBHOOK_EVENTS_FULL_SYNC === 'true',
           ERRORS: process.env?.WEBHOOK_EVENTS_ERRORS === 'true',
           ERRORS_WEBHOOK: process.env?.WEBHOOK_EVENTS_ERRORS_WEBHOOK || '',
         },
