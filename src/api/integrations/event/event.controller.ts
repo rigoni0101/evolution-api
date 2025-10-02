@@ -150,6 +150,7 @@ export class EventController {
     'CALL',
     'TYPEBOT_START',
     'TYPEBOT_CHANGE_STATUS',
+    'FULL_SYNC',
     'REMOVE_INSTANCE',
     'LOGOUT_INSTANCE',
     'INSTANCE_CREATE',

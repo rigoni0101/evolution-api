@@ -1763,6 +1763,17 @@ export class BaileysStartupService extends ChannelStartupService {
   private historySyncNotification(msg: proto.Message.IHistorySyncNotification) {
     const instance: InstanceDto = { instanceName: this.instance.name };
 
+    // Emit FULL_SYNC webhook event when sync is complete (independent of Chatwoot)
+    if (this.isSyncNotificationFromUsedSyncType(msg) && msg.progress === 100) {
+      this.sendDataWebhook(Events.FULL_SYNC, {
+        instance: this.instance.name,
+        syncType: msg.syncType,
+        progress: msg.progress,
+        chunkOrder: msg.chunkOrder,
+        timestamp: new Date().toISOString(),
+      });
+    }
+
     if (
       this.configService.get<Chatwoot>('CHATWOOT').ENABLED &&
       this.localChatwoot?.enabled &&
