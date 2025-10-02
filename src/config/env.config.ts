@@ -91,6 +91,7 @@ export type EventsRabbitmq = {
   CALL: boolean;
   TYPEBOT_START: boolean;
   TYPEBOT_CHANGE_STATUS: boolean;
+  FULL_SYNC: boolean;
 };
 
 export type Rabbitmq = {
@@ -256,6 +257,7 @@ export type EventsPusher = {
   CALL: boolean;
   TYPEBOT_START: boolean;
   TYPEBOT_CHANGE_STATUS: boolean;
+  FULL_SYNC: boolean;
 };
 
 export type ApiKey = { KEY: string };
