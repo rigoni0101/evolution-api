@@ -161,9 +161,9 @@ export type EventsWebhook = {
   CALL: boolean;
   TYPEBOT_START: boolean;
   TYPEBOT_CHANGE_STATUS: boolean;
-  FULL_SYNC: boolean;
   ERRORS: boolean;
   ERRORS_WEBHOOK: string;
+  FULL_SYNC: boolean;
 };
 
 export type EventsPusher = {
@@ -576,9 +576,9 @@ export class ConfigService {
           CALL: process.env?.WEBHOOK_EVENTS_CALL === 'true',
           TYPEBOT_START: process.env?.WEBHOOK_EVENTS_TYPEBOT_START === 'true',
           TYPEBOT_CHANGE_STATUS: process.env?.WEBHOOK_EVENTS_TYPEBOT_CHANGE_STATUS === 'true',
-          FULL_SYNC: process.env?.WEBHOOK_EVENTS_FULL_SYNC === 'true',
           ERRORS: process.env?.WEBHOOK_EVENTS_ERRORS === 'true',
           ERRORS_WEBHOOK: process.env?.WEBHOOK_EVENTS_ERRORS_WEBHOOK || '',
+          FULL_SYNC: process.env?.WEBHOOK_EVENTS_FULL_SYNC === 'true',
         },
         REQUEST: {
           TIMEOUT_MS: Number.parseInt(process.env?.WEBHOOK_REQUEST_TIMEOUT_MS) || 30000,
