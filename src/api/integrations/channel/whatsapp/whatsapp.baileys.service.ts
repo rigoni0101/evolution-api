@@ -1000,30 +1000,6 @@ export class BaileysStartupService extends ChannelStartupService {
             continue;
           }
 
-          // Log dos dados brutos do Baileys para debug de mensagens de grupo
-          const isGroupMessage = m.key.remoteJid?.endsWith('@g.us');
-          if (isGroupMessage) {
-            this.logger.verbose({
-              message: '📋 [DEBUG] Mensagem de grupo recebida do Baileys (dados brutos)',
-              instanceName: this.instance.name,
-              messageId: m.key.id,
-              remoteJid: m.key.remoteJid,
-              fromMe: m.key.fromMe,
-              participant: m.participant,
-              keyParticipant: m.key.participant,
-              pushName: m.pushName,
-              messageTimestamp: m.messageTimestamp,
-              messageType: Object.keys(m.message || {})[0],
-              rawData: JSON.stringify({
-                key: m.key,
-                participant: m.participant,
-                pushName: m.pushName,
-                messageTimestamp: m.messageTimestamp,
-                message: m.message,
-              }),
-            });
-          }
-
           if (m.key.remoteJid?.includes('@lid') && (m.key as ExtendedIMessageKey).senderPn) {
             m.key.remoteJid = (m.key as ExtendedIMessageKey).senderPn;
           }
